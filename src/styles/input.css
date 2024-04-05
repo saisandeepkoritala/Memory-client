@@ -1,0 +1,16 @@
+input{
+    width:85%;
+    height:45px;
+    padding-left:10px;
+    font-size: 1.25rem;
+    border:1px solid black;
+}
+
+.message{
+    height: 125px;
+    width:85%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    padding-left: 1px;
+    resize: none;
+}

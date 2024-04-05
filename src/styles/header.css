@@ -1,0 +1,20 @@
+.header{
+    width:100%;
+    display: flex;
+    align-items: center;
+}
+
+.header>div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header_name p{
+    font-size: 2rem;
+    font-family:fantasy;
+}
+
+.header_icon svg{
+    font-size: 1.5rem;
+}

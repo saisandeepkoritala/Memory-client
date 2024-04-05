@@ -1,0 +1,16 @@
+.search{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.search button{
+    width:85%;
+    height:45px;
+    color:white;
+    background-color: rgba(0, 0, 255,0.8);
+    font-size: 1.25rem;
+    border:2px solid black;
+}
