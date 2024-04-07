@@ -6,6 +6,7 @@ import axios from "axios";
 import {setMemories} from "../store";
 import { useRef,useEffect } from 'react';
 import { storage } from "./Firebase";
+import Textarea from './Textarea';
 
 const Create = () => {
     const dispatch = useDispatch();
@@ -87,18 +88,25 @@ const Create = () => {
                         }
                     };
     
-                    const response = await fetch('http://localhost:5000/api/v1/user/create', requestOptions);
+                    const response = await fetch('https://memory-serverr.onrender.com/api/v1/user/create', requestOptions);
                     const data = await response.json();
     
                     if (response.status === 200) {
-                        console.log("just created", data.data);
-                        dispatch(setMemories([data?.data]));
+                        console.log("just created", data);
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }, 0);
                         SetMessage("");
                         SetTags("");
                         SetTitle("");
                         Setfile(null);
                         Setpic("");
                         fileRef.current.value = '';
+                        dispatch(setMemories(data?.lastTwoDocs));
+                        dispatch(setTotalPages(data?.totalPages));
                     }
                     else{
                         console.log("error broo")
@@ -119,14 +127,7 @@ const Create = () => {
         <div className='create'>
             <p>Creating a Memory</p>
             <Input onChange={handleChangeTitle} value={Title} label="Title"/>
-            <textarea
-                    value={Message}
-                    onChange={handleChangeMessage}
-                    rows={4}
-                    cols={50}
-                    placeholder='Message'
-                    className='message'
-                    />
+            <Textarea Message={Message} SetMessage={SetMessage}/>
             <Input onChange={handleChangeTags} value={Tags} label="Tags"/>
                 <input type="file" ref={fileRef} hidden accept="image/*"  onChange={(e)=>Setfile(e.target.files[0])}/>
                 <img type="file"
@@ -136,7 +137,7 @@ const Create = () => {
                 {!(progress === 0 || progress ===100) && 
                     <progress value={progress} max="100"><h1>{`${progress}%`}</h1></progress>
                 }
-                {!(progress===0 || progress ===100) && <h2>{progress}</h2>}
+                {!(progress===0 || progress ===100) && <h2> Image Uploaded {progress} %</h2>}
 
             <button type="submit" onClick={handleSubmit}>Submit</button>
             <button onClick={handleClear}>Clear</button>

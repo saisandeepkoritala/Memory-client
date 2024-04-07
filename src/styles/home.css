@@ -15,7 +15,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-
 }
 .home a{
     display: flex;
@@ -52,7 +51,8 @@
 
 
 .filters{
-    width:40%;
+    width:30%;
+    min-width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,9 +79,15 @@
     }
     .filters{
         width:100%;
+        min-width: 300px;
     }
     .filters >div{
-        width:75%;
+        width:70%;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .home a{

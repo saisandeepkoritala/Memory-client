@@ -10,7 +10,9 @@ const userSlice = createSlice({
         userData:localStorage.getItem('user-info')
         ? JSON.parse(localStorage.getItem('user-info'))
         : [{"email":"none","displayName":"none"}],
-        Memories:[]
+        Memories:[],
+        TotalPages:1,
+        CurrentPage:1,
     },
     reducers:{
         setisUser(state,action){
@@ -24,8 +26,24 @@ const userSlice = createSlice({
             localStorage.setItem("user-info",JSON.stringify(action.payload))
         },
         setMemories(state, action) {
-            const newMemory = action.payload[0];
-            state.Memories = state.Memories ? [...state.Memories, ...action.payload] : [...action.payload];
+            // state.Memories = state.Memories ? [...state.Memories, ...action.payload] : [...action.payload];
+            state.Memories = [...action.payload];
+        },
+        setTotalPages(state,action){
+            state.TotalPages = action.payload;
+        },
+        setCurrentPage(state,action){
+            state.CurrentPage = action.payload;
+        },
+        setupdatedLike(state,action){
+            const updatedMemories = state.Memories.map(memory => {
+                if (memory._id === action.payload._id) {
+                    return action.payload;
+                }
+                return memory;
+            });
+            console.log(updatedMemories)
+            state.Memories = updatedMemories;
         }
         
     }
@@ -34,4 +52,6 @@ const userSlice = createSlice({
 
 
 export const UserReducer = userSlice.reducer;
-export const {setisUser,setuserData,setMemories} = userSlice.actions;
+export const {setisUser,setuserData,
+    setMemories ,setTotalPages ,
+    setCurrentPage,setupdatedLike} = userSlice.actions;

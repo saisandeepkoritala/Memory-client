@@ -1,0 +1,32 @@
+.outer {
+    position: relative;
+    overflow: hidden;
+    background-color: #E5E7EB; /* You can adjust the color code as needed */
+    border-radius: 0.25rem; /* You can adjust the radius as needed */
+    margin-bottom: 0.625rem; /* You can adjust the margin as needed */
+    width:350px;
+    height:400px;
+}
+
+.inner {
+    position: absolute;
+    animation: shimmer 1s infinite linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(to right, #E5E7EB, #FFFFFF, #E5E7EB); /* You can adjust the color codes as needed */
+    background-color: #E5E7EB; /* You can adjust the color code as needed */
+    width: 100%; /* Adjust width as needed */
+    height:100%; /* Adjust height as needed */
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}

@@ -28,7 +28,11 @@
     width:250px;
     height:250px;
     border-radius: 50%;
-    object-fit: contain;
+    /* object-fit: contain; */
+}
+
+.create h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 

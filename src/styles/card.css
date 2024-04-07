@@ -7,7 +7,7 @@
 .card >div{
     border:2px solid black;
     width:350px;
-    min-height: 500px;
+    min-height:600px;
     padding: 4px;
     display: flex;
     align-items:flex-start;
@@ -18,12 +18,42 @@
 
 .card div img{
     width:100%;
-    height:350px;
+    height:400px;
     object-fit: contain;
+    border-radius: 10%;
 }
 
 .card div p{
     text-transform: capitalize;
+}
+
+.card .likes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+p:nth-child(2){
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+p:nth-child(3){
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+p:nth-child(4){
+    margin-left: 15px;
+    text-transform: capitalize;
+}
+
+p:nth-child(5){
+    margin-left: 15px;
+}
+
+
+p strong{
+    font-size: 1.25rem;
 }
 
 
