@@ -13,9 +13,10 @@ const Cards = () => {
         const getData=async()=>{
             const resp = await axios.get("http://localhost:5000/api/v1/user/getMemories")
             console.log(resp.data.Memory)
-            dispatch(setMemories(resp.data.Memory))
+            dispatch(setMemories(resp?.data?.Memory))
         }
         getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
     const Memories = useSelector((store)=>store.user.Memories);

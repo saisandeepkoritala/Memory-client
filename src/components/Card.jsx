@@ -6,7 +6,7 @@ const Card = (data) => {
     return (
         <div className='card'>
             <div>   
-                <img src={`http://localhost:5000/Images/${image}`} />
+                <img src={image} />
                 <p>Title : {title}</p>
                 <p>Author : {name}</p>
                 <p>Message : {message}</p>
