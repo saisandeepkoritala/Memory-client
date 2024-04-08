@@ -64,7 +64,9 @@
 .filters >div{
     border:1px solid black;
     width:100%;
+    min-height: 50vh;
     border-radius: 10px;
+    padding-bottom: 10%;
 }
 
 @media only screen and (max-width: 600px) {

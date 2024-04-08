@@ -12,9 +12,12 @@
 
 .header_name p{
     font-size: 2rem;
+    color: red;
     font-family:fantasy;
 }
 
 .header_icon svg{
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    color:red;
 }
+

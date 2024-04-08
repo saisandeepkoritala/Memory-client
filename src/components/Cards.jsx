@@ -9,11 +9,13 @@ import Pagination from './Pagination';
 import Blank from './Blank';
 
 
+
 const Cards = () => {
     const dispatch= useDispatch();
     useEffect(()=>{
         const getData=async()=>{
             const resp = await axios.post("https://memory-serverr.onrender.com/api/v1/user/Page")
+            console.log(resp?.data?.items)
             dispatch(setMemories(resp?.data?.items))
             dispatch(setCurrentPage(resp?.data?.currentPage))
             dispatch(setTotalPages(resp?.data?.totalPages))

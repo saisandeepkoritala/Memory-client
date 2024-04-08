@@ -43,13 +43,13 @@ const Pagination = () => {
 
     const handleRight = () => {
         if (CurrentPage < TotalPages) { 
-            dispatch(setCurrentPage(CurrentPage + 1))
+            handleSubmit(CurrentPage+1)
         }
     };
 
     const handleLeft = () => {
         if (CurrentPage > 1) { 
-            dispatch(setCurrentPage(CurrentPage - 1))
+            handleSubmit(CurrentPage-1)
         }
     };
     return (

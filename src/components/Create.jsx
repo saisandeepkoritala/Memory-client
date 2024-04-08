@@ -2,11 +2,12 @@ import React,{useState} from 'react';
 import "../styles/create.css";
 import Input from "./Input";
 import {useSelector,useDispatch} from "react-redux";
-import axios from "axios";
 import {setMemories} from "../store";
 import { useRef,useEffect } from 'react';
 import { storage } from "./Firebase";
 import Textarea from './Textarea';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Create = () => {
     const dispatch = useDispatch();
@@ -107,10 +108,21 @@ const Create = () => {
                         fileRef.current.value = '';
                         dispatch(setMemories(data?.lastTwoDocs));
                         dispatch(setTotalPages(data?.totalPages));
+                        toast.success("Created Successfully", {
+                            style: { width: '250px' }
+                        });
                     }
                     else{
                         console.log("error broo")
+                        toast.error("Fill all details", {
+                            style: { width: '250px' }
+                        });
                     }
+                }
+                else{
+                    toast.error("Login to access", {
+                        style: { width: '250px' }
+                    });
                 }
                 
     }
@@ -126,6 +138,7 @@ const Create = () => {
     return (
         <div className='create'>
             <p>Creating a Memory</p>
+            <ToastContainer/>
             <Input onChange={handleChangeTitle} value={Title} label="Title"/>
             <Textarea Message={Message} SetMessage={SetMessage}/>
             <Input onChange={handleChangeTags} value={Tags} label="Tags"/>

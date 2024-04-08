@@ -9,7 +9,7 @@ const userSlice = createSlice({
         : false,
         userData:localStorage.getItem('user-info')
         ? JSON.parse(localStorage.getItem('user-info'))
-        : [{"email":"none","displayName":"none"}],
+        : [{"email":"","displayName":""}],
         Memories:[],
         TotalPages:1,
         CurrentPage:1,
@@ -42,7 +42,7 @@ const userSlice = createSlice({
                 }
                 return memory;
             });
-            console.log(updatedMemories)
+            // console.log(updatedMemories)
             state.Memories = updatedMemories;
         }
         
