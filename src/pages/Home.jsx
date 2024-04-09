@@ -11,8 +11,6 @@ import queryString from 'query-string';
 import { useState,useEffect } from "react";
 import {setisUser,setuserData} from "../store"
 
-
-
 const Home = () => {
     const location = useLocation();
     const navigate = useNavigate();

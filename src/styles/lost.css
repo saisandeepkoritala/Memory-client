@@ -1,0 +1,31 @@
+.lost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.lost .image {
+    background-image: url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif");
+    height:60vh; 
+    width:100%;
+    background-position: center;
+}
+
+.lost .data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 25vh;
+}
+.lost .data p{
+    font-size: 1.5rem;
+    font-family: fantasy;
+}
+
+.lost .data button{
+    padding: 10px 15px;
+    background-color: green;
+    color:white;
+    border:2px solid black;
+}
