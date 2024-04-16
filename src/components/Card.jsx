@@ -8,6 +8,7 @@ import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Card = (data) => {
     const dispatch = useDispatch();
     const { email } = useSelector((store) => store?.user?.userData);
@@ -64,11 +65,12 @@ const Card = (data) => {
             time=`${remainingHours} hours ago `
         }
     }
+    
 
     return (
         <div className='card'>
             <div>
-                <img src={image} alt="Memory Image" />
+                <img src={image} alt="Memory Image" onClick={()=>handleDownload(image)}/>
                 <p>{tags}</p>
                 <p>{title}</p>
                 <p>{message}</p>
